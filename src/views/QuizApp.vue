@@ -9,16 +9,16 @@
     />
     <div class="container">
       <button>
-        {{ "選択肢1" }}
+        {{ "東京" }}
       </button>
       <button>
-        {{ "選択肢2" }}
+        {{ "千葉" }}
       </button>
       <button>
-        {{ "選択肢3" }}
+        {{ "神奈川" }}
       </button>
     </div>
-    <div>{{ "答え" }}</div>
+    <div>{{ "千葉" }}</div>
   </div>
 </template>
 
