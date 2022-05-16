@@ -17,8 +17,8 @@
   align-items: center;
 }
 .palette {
-  width: 255px;
-  height: 255px;
+  width: 500px;
+  height: 500px;
 }
 .mini-palette {
   min-width: 60px;
