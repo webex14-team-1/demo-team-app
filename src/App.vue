@@ -1,20 +1,14 @@
 <template>
-  <Header />
-  <main class="main-view">
-    <router-view />
-  </main>
-  <Footer />
+  <div>{{ quiz.text }}</div>
 </template>
 
 <script>
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-
 export default {
-  components: {
-    Header,
-    Footer,
-  },
+  date() {
+    reuturn {
+    }
+    }
+    },
 }
 </script>
 

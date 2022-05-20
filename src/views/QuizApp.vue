@@ -1,29 +1,59 @@
 <template>
   <h1>Vue クイズ</h1>
   <div class="app">
-    <h2>Q. {{ "クイズタイトル" }}</h2>
-    <img
-      class="quiz-image"
-      src="https://via.placeholder.com/300x300"
-      alt="クイズタイトル"
-    />
+    <h2>Q. {{ quiz.text }}</h2>
+    <img class="quiz-image" src="okinawa.jpg/300x300" alt="沖縄クイズ" />
     <div class="container">
-      <button>
-        {{ "東京" }}
+      <button v-on:click="choice(0)">
+        {{ quiz.choices[0].text }}
       </button>
-      <button>
-        {{ "千葉" }}
+      <button v-on:click="choice(1)">
+        {{ quiz.choices[1].text }}
       </button>
-      <button>
-        {{ "神奈川" }}
+      <button v-on:click="choice(2)">
+        {{ quiz.choices[2].text }}
       </button>
     </div>
-    <div>{{ "千葉" }}</div>
+    <div>{{ feedback }}</div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  date () {
+    return {
+   feedback: "",
+      quiz :{
+
+          text: "沖縄から持ち出し禁止ものもは？",
+          Image : "サツマイモ.jpg"
+          choices : [
+       {
+         text: "サツマイモ",
+         isCorrect: true,
+         feedback:
+          "正解！沖縄のサツマイモに寄生する害虫を本土に持ち込まないようにするため！"
+       },
+       {
+         text: "パイナップル"
+         isCorrect: false ,
+         feedback:
+          "残念！沖縄県はパイナップルの生産量が日本一！"
+       },
+       {
+         text: "サトウキビ"
+         isCorrect: false,
+         feedback: "残念！沖縄のサトウキビの全国シェアは60％！"
+       },
+     ]
+    }
+  },
+  methods: {
+   choicd(i) {
+     this.feedback = this.quiz.choices[i].feedback
+   }
+  }
+}
 </script>
 
 <style>
