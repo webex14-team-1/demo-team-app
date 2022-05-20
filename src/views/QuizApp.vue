@@ -38,7 +38,7 @@ export default {
          text: "パイナップル"
          isCorrect: false ,
          feedback:
-          "残念！沖縄県はパイナップルの生産量が日本一！"
+          "残念！沖縄県はパイナップルの生産量が日本１！"
        },
        {
          text: "サトウキビ"
