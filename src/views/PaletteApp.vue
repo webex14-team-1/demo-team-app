@@ -16,7 +16,7 @@
         v-bind:style="{
           backgroundColor: `rgba(${color.red}, ${color.green},200, 0.5)`,
         }"
-        v-on:click="detail"
+        v-on:click="detail(color)"
       ></div>
     </div>
   </div>
@@ -45,9 +45,9 @@
 }
 </style>
 
-<script src="https://unpkg.com/vue@next"></script>
+<!-- <script src="https://unpkg.com/vue@next"></script> -->
 <script>
-Vue.createApp({
+export default {
   data: function () {
     return {
       red: 0,
@@ -66,7 +66,7 @@ Vue.createApp({
       }
       this.colors.push(colorHai)
     },
-    detail() {
+    detail(color) {
       this.red = color.red
       this.green = color.green
     },
@@ -78,5 +78,5 @@ Vue.createApp({
       }
     },
   },
-})
+}
 </script>
