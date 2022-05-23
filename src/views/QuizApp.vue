@@ -1,29 +1,65 @@
 <template>
   <h1>Vue クイズ</h1>
   <div class="app">
-    <h2>Q. {{ "クイズタイトル" }}</h2>
-    <img
-      class="quiz-image"
-      src="https://via.placeholder.com/300x300"
-      alt="クイズタイトル"
-    />
+    <h2>Q. {{ quiz.text }}</h2>
+    <img class="quiz-image" v-bind:src="imagepath" alt="沖縄クイズ" />
+
     <div class="container">
-      <button>
-        {{ "東京" }}
+      <button v-on:click="choice(0)">
+        {{ quiz.choices[0].text }}
       </button>
-      <button>
-        {{ "千葉" }}
+      <button v-on:click="choice(1)">
+        {{ quiz.choices[1].text }}
       </button>
-      <button>
-        {{ "神奈川" }}
+      <button v-on:click="choice(2)">
+        {{ quiz.choices[2].text }}
       </button>
     </div>
-    <div>{{ "千葉" }}</div>
+    <div>{{ feedback }}</div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      imagepath: require("@/views/images/okinawa.jpeg"),
+
+      feedback: "",
+      quiz: {
+        text: "沖縄から持ち出し禁止ものもは？",
+        Image: " @/views/images/satsumaimo.jpg",
+        choices: [
+          {
+            text: "サツマイモ",
+            isCorrect: true,
+            feedback:
+              "正解！沖縄のサツマイモに寄生する害虫を本土に持ち込まないようにするため！",
+          },
+          {
+            text: "パイナップル",
+            isCorrect: false,
+            feedback: "残念！沖縄県はパイナップルの生産量が日本１！",
+          },
+          {
+            text: "サトウキビ",
+            isCorrect: false,
+            feedback: "残念！沖縄のサトウキビの全国シェアは60％！",
+          },
+        ],
+      },
+    }
+  },
+  methods: {
+    choice(i) {
+      this.feedback = this.quiz.choices[i].feedback
+      // 正解のボタンを押したときに沖縄の写真をサツマイモの写真に変える
+      if (this.quiz.choices[i].isCorrect === true) {
+        this.imagepath = require("@/views/images/satsumaimo.jpg")
+      }
+    },
+  },
+}
 </script>
 
 <style>
