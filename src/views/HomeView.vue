@@ -2,17 +2,17 @@
   <h1>Home</h1>
   <div>ここにそれぞれのアプリに行けるリンクを設置する</div>
   <div class="link">
-    <a class="quizHome common" href="./QuizApp.vue">
+    <router-link to="/quiz" class="quizHome common">
       <p class="Text">クイズ</p>
-    </a>
+    </router-link>
 
-    <a class="paletteHome common" href="./PaletteApp.vue">
+    <router-link to="/palette" class="paletteHome common">
       <p class="Text">パレット</p>
-    </a>
+    </router-link>
 
-    <a class="memoHome common" href="./MemoApp.vue">
+    <router-link to="/memo" class="memoHome common">
       <p class="Text">メモ</p>
-    </a>
+    </router-link>
   </div>
 </template>
 
