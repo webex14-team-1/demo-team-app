@@ -1,10 +1,23 @@
 <template>
   <h1>Vue パレット</h1>
   <div class="app">
-    <div class="palette" style="background-color: rgba(0, 0, 200, 0.5)"></div>
-    <p>rgba( {{ 0 }}, {{ 0 }}, 200, 0.5 )</p>
+    <div
+      class="palette"
+      v-on:mousemove="colorPosition"
+      v-on:click="colorDecision"
+      v-bind:style="paletteColor"
+    ></div>
+    <p>rgba( {{ red }}, {{ green }}, 200, 0.5 )</p>
     <div class="colors-container">
-      <div class="mini-palette"></div>
+      <div
+        class="mini-palette"
+        v-for="color in colors"
+        v-bind:key="color.id"
+        v-bind:style="{
+          backgroundColor: `rgba(${color.red}, ${color.green},200, 0.5)`,
+        }"
+        v-on:click="detail(color)"
+      ></div>
     </div>
   </div>
 </template>
@@ -17,8 +30,8 @@
   align-items: center;
 }
 .palette {
-  width: 255px;
-  height: 255px;
+  width: 280px;
+  height: 280px;
 }
 .mini-palette {
   min-width: 60px;
@@ -31,3 +44,39 @@
   padding-top: 8px;
 }
 </style>
+
+<!-- <script src="https://unpkg.com/vue@next"></script> -->
+<script>
+export default {
+  data: function () {
+    return {
+      red: 0,
+      green: 0,
+      colors: [],
+    }
+  },
+  methods: {
+    colorPosition(position) {
+      ;(this.red = position.offsetX), (this.green = position.offsetY)
+    },
+    colorDecision() {
+      const colorHai = {
+        red: this.red,
+        green: this.green,
+      }
+      this.colors.push(colorHai)
+    },
+    detail(color) {
+      this.red = color.red
+      this.green = color.green
+    },
+  },
+  computed: {
+    paletteColor() {
+      return {
+        backgroundColor: `rgba(${this.red},${this.green},200,0.5)`,
+      }
+    },
+  },
+}
+</script>
