@@ -5,11 +5,11 @@
 <script>
 export default {
   date() {
-    reuturn {
+    return {
     }
     }
-    },
-}
+    }
+},
 </script>
 
 <style scoped>

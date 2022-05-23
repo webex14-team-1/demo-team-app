@@ -2,7 +2,7 @@
   <h1>Vue クイズ</h1>
   <div class="app">
     <h2>Q. {{ quiz.text }}</h2>
-    <img class="quiz-image" src="okinawa.jpg/300x300" alt="沖縄クイズ" />
+    <img class="quiz-image" src="okinawa.png/300x300" alt="沖縄クイズ" />
     <div class="container">
       <button v-on:click="choice(0)">
         {{ quiz.choices[0].text }}
@@ -24,7 +24,6 @@ export default {
     return {
    feedback: "",
       quiz :{
-
           text: "沖縄から持ち出し禁止ものもは？",
           Image : "サツマイモ.jpg"
           choices : [
