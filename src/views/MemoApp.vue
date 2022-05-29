@@ -29,15 +29,15 @@ export default {
       inputMemo: "",
       memos: [
         {
-          text: "ひき肉を300g買う",
+          text: "ボールペン買う",
           isDone: false,
         },
         {
-          text: "ホウレンソウを1束買う",
+          text: "ノートを２冊買う",
           isDone: false,
         },
         {
-          text: "ピーマンを2個買う",
+          text: "A4コピー用紙を買う",
           isDone: false,
         },
       ],
@@ -59,10 +59,11 @@ export default {
 
 <style>
 :root {
-  --main-color: #b23b61;
+  --main-color: #27c16f;
+  --sub-color: #2c3e50;
   --text-color: #fff;
   --text-hover-color: #fff;
-  --button-border-color: #000;
+  --button-border-color: #2c3e50;
   --button-bg-color: #fff;
 }
 
@@ -94,6 +95,8 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
+  margin: 0.5rem;
+  border: solid 1px var(--button-border-color);
   border-radius: 5px;
 }
 
@@ -123,5 +126,10 @@ button {
 
 .add-memo-field__input {
   padding: 10px;
+}
+
+.add-memo-field__button:hover {
+  color: var(--text-color);
+  background-color: var(--sub-color);
 }
 </style>
